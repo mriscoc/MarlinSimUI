@@ -20,8 +20,13 @@
 #include "window.h"
 #include "user_interface.h"
 
-constexpr glm::ivec2 build_plate_dimension{X_BED_SIZE, Y_BED_SIZE};
-constexpr glm::ivec2 build_plate_offset{X_MIN_POS, Y_MIN_POS};
+#ifdef PROUI_EX
+  extern glm::ivec2 build_plate_dimension;
+  extern glm::ivec2 build_plate_offset;
+#else
+  constexpr glm::ivec2 build_plate_dimension{X_BED_SIZE, Y_BED_SIZE};
+  constexpr glm::ivec2 build_plate_offset{X_MIN_POS, Y_MIN_POS};
+#endif
 
 using millisec = std::chrono::duration<float, std::milli>;
 

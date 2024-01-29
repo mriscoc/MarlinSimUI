@@ -16,6 +16,11 @@
 #include "src/inc/MarlinConfig.h"
 #include "src/module/motion.h"
 
+#ifdef PROUI_EX
+  glm::ivec2 build_plate_dimension = {X_BED_SIZE, Y_BED_SIZE};
+  glm::ivec2 build_plate_offset = {X_MIN_POS, Y_MIN_POS};
+#endif
+
 static GLfloat * SetBedVertexAndAdvance(GLfloat * dest, GLfloat x, GLfloat y) {
   const GLfloat new_vertex[VERTEX_FLOAT_COUNT] = { BED_VERTEX(x, y) };
   memcpy(dest, new_vertex, sizeof(new_vertex));
